@@ -20,4 +20,10 @@ public class BerlinClockTest {
 		assertEquals("O",clock.convertSecondsToSecondsLamp(7));
 	}
 
+	@Test
+	public void testHoursToFiveHoursRowConversion(){
+		assertEquals("RROO",clock.convertHoursToFiveHoursRow(13));
+		assertEquals("RRRR",clock.convertHoursToFiveHoursRow(21));
+	}
+
 }
