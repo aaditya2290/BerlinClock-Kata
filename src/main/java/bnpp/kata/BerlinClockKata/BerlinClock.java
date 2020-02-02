@@ -49,6 +49,18 @@ public class BerlinClock {
 
 	}
 
+	public String convertMinutesToSingleMinutesRow(int minutes)
+	{
+		String result="";
+		int onCountSingleMinutesRow=getOnCountForRow(1,minutes);
+		for (int i=1;i<=4;i++)
+			if (i<=onCountSingleMinutesRow)
+				result+="Y";	
+			else
+				result+="O";
+		return result;	
+	}
+
 	public int getOnCountForRow(int type,int time)
 	{
 		switch(type)
