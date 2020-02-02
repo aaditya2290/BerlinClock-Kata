@@ -2,6 +2,21 @@ package bnpp.kata.BerlinClockKata;
 
 public class BerlinClock {
 
+	public String[] convertDigitalTimeToBerlinTime(String digitalTime)
+	{
+		String[] digitalTimeArray=digitalTime.split(":");
+		int[] digitalTimeNumeric=new int[digitalTimeArray.length];
+
+		for (int i=0;i<digitalTimeArray.length;i++)
+			digitalTimeNumeric[i]=Integer.parseInt(digitalTimeArray[i]);
+
+		return new String[]{
+				convertSecondsToSecondsLamp(digitalTimeNumeric[2]),
+				convertHoursToFiveHoursRow(digitalTimeNumeric[0]),convertHoursToSingleHoursRow(digitalTimeNumeric[0]),
+				convertMinutesToFiveMinutesRow(digitalTimeNumeric[1]),convertMinutesToSingleMinutesRow(digitalTimeNumeric[1])
+		};
+	}
+
 	public String convertSecondsToSecondsLamp(int seconds)
 	{
 		return (seconds%2==0?"Y":"O");

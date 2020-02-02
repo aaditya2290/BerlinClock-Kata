@@ -43,5 +43,13 @@ public class BerlinClockTest {
 		assertEquals("YYOO",clock.convertMinutesToSingleMinutesRow(22));
 		assertEquals("YYYO",clock.convertMinutesToSingleMinutesRow(48));
 	}
+	
+	@Test
+	public void testDigitalTimeToBerlinTimeConversion(){
+		String[] berlinTime=clock.convertDigitalTimeToBerlinTime("15:47:33");
+		String[] expectedValue=new String[]{"O","RRRO","OOOO","YYRYYRYYROO","YYOO"};
+		for (int i=0;i<expectedValue.length;i++)
+			assertEquals(expectedValue[i],berlinTime[i]);
+	}
 
 }
