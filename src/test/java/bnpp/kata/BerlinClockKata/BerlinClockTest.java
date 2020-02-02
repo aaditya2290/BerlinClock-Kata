@@ -32,4 +32,10 @@ public class BerlinClockTest {
 		assertEquals("ROOO",clock.convertHoursToSingleHoursRow(11));
 	}
 
+	@Test
+	public void testMinutesToFiveMinutesRowConversion(){
+		assertEquals("YYRYYRYOOOO",clock.convertMinutesToFiveMinutesRow(37));
+		assertEquals("YYRYYRYYRYO",clock.convertMinutesToFiveMinutesRow(53));
+	}
+
 }

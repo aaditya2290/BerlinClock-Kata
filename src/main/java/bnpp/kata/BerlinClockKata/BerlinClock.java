@@ -10,7 +10,7 @@ public class BerlinClock {
 	public String convertHoursToFiveHoursRow(int hours)
 	{
 		String result="";
-		int onCountFiveHoursRow=getOnCountForHoursRow(0,hours);
+		int onCountFiveHoursRow=getOnCountForRow(0,hours);
 		for (int i=1;i<=4;i++)
 			if (i<=onCountFiveHoursRow)
 				result+="R";
@@ -22,7 +22,7 @@ public class BerlinClock {
 	public String convertHoursToSingleHoursRow(int hours)
 	{
 		String result="";
-		int onCountSingleHoursRow=getOnCountForHoursRow(1,hours);
+		int onCountSingleHoursRow=getOnCountForRow(1,hours);
 		for (int i=1;i<=4;i++)
 			if (i<=onCountSingleHoursRow)
 				result+="R";
@@ -31,14 +31,32 @@ public class BerlinClock {
 		return result;
 	}
 
-	public int getOnCountForHoursRow(int type,int hours)
+	public String convertMinutesToFiveMinutesRow(int minutes)
+	{
+		String result="";
+		int onCountFiveMinutesRow=getOnCountForRow(0,minutes);
+		for (int i=1;i<=11;i++)
+			if (i<=onCountFiveMinutesRow)
+			{
+				if (i%3==0)
+					result+="R";
+				else
+					result+="Y";	
+			}
+			else
+				result+="O";
+		return result;
+
+	}
+
+	public int getOnCountForRow(int type,int time)
 	{
 		switch(type)
 		{
 		case 0:
-			return hours/5;
+			return time/5;
 		case 1:
-			return hours%5;
+			return time%5;
 		default:
 			return -1;
 
